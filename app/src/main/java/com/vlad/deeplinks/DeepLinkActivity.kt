@@ -4,10 +4,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 
-import kotlinx.android.synthetic.main.activity_deep_link.*
 
 class DeepLinkActivity : AppCompatActivity() {
 
@@ -25,9 +23,25 @@ class DeepLinkActivity : AppCompatActivity() {
         if(data != null){
 
             txtDeepLink.text = data.path
-            var text = data.pathSegments
-            Log.d(TAG, "deep link intent received ${text[0]}")
-            DeepLinksCallbacks.deepChangeRegion(data.path.toString())
+
+            var region: String? = null
+
+            try {
+
+                region = data.getQueryParameter("region")
+
+            } catch (e: Exception) {
+
+                e.printStackTrace()
+
+            }
+
+            if(region == null) return
+
+            Log.d(TAG, "deep link intent received $region")
+            DeepLinksCallbacks.deepChangeRegion(region)
+
+            data.getQueryParameter("region")
 
         }
 

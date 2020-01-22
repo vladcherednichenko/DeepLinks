@@ -23,6 +23,35 @@
                     android:host="www.heyclay.com"
                     android:pathPrefix="/ua"
                     android:scheme="http" />
+
+                <data
+                    android:scheme="http"
+                    android:host="www.hey-clay.com"
+                    android:pathPrefix="/us" />
+
+                <data
+                    android:scheme="http"
+                    android:host="www.hey-clay.com"
+                    android:pathPrefix="/hcr" />
+
+                <data
+                    android:scheme="http"
+                    android:host="hey-clay.com"
+                    android:pathPrefix="/hcr" />
+
+                <data
+                    android:scheme="https"
+                    android:host="hey-clay.com"
+                    android:pathPrefix="/hcr" />
+
+                <data
+                    android:scheme="http"
+                    android:host="www.hey-clay.com/hcr" />
+
+                <data
+                    android:scheme="custom-scheme"
+                    android:host="custom-host" />
+
                 <!-- note that the leading "/" is required for pathPrefix -->
             </intent-filter>
         </activity>
